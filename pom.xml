@@ -9,9 +9,9 @@
 		<relativePath/> <!-- lookup parent from repository -->
 	</parent>
 	<groupId>com.hst.board</groupId>
-	<artifactId>test</artifactId>
+	<artifactId>board</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
-	<name>test</name>
+	<name>board</name>
 	<description>Demo project for Spring Boot</description>
 	<properties>
 		<java.version>1.11</java.version>
@@ -66,6 +66,26 @@
 							<artifactId>lombok</artifactId>
 						</exclude>
 					</excludes>
+				</configuration>
+			</plugin>
+
+			<!-- JAVA_HOEM과 별도의 버전으로 빌드할 경우 아래의 2개의 플러그인을 추가하 빌드하면 가능 -->
+			<plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-compiler-plugin</artifactId>
+        		<version>3.8.1</version>
+                <configuration>
+                    <fork>true</fork>
+                    <executable>C:\\Program Files\\AdoptOpenJDK\\jdk-11.0.10.9-hotspot\\bin\\javac</executable>
+                    <compilerVersion>${java.version}</compilerVersion>
+                </configuration>
+			</plugin>
+			<plugin>
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-surefire-plugin</artifactId>
+				<version>2.19.1</version>
+				<configuration>
+					<jvm>C:\\Program Files\\AdoptOpenJDK\\jdk-11.0.10.9-hotspot\\bin\\java</jvm>
 				</configuration>
 			</plugin>
 		</plugins>
