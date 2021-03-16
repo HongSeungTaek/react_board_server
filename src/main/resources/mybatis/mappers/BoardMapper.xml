@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+ "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.hst.board.dao.BoardDao">
+  		
+  <select id="selectBoards" resultType="com.hst.board.vo.BoardVo">
+    SELECT
+      board_id AS boardId,
+      title AS title,
+      content AS content,
+      insert_date AS insertDate
+    FROM t_board
+  </select>
+
+</mapper>

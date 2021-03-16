@@ -1,13 +1,12 @@
-package com.hst.board.test;
+package com.hst.board;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 
 @SpringBootApplication
-public class TestApplication {
+public class BoardApplication {
 
 	public static void main(String[] args) {
-		SpringApplication.run(TestApplication.class, args);
+		SpringApplication.run(BoardApplication.class, args);
 	}
-
 }
