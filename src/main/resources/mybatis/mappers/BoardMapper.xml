@@ -11,6 +11,13 @@
       content AS content,
       insert_date AS insertDate
     FROM t_board
+    LIMIT #{offset}, #{pageCnt}
+  </select>
+
+  <select id="selectBoardsCnt" resultType="int">
+    SELECT
+      count(board_id) AS cnt
+    FROM t_board
   </select>
 
 </mapper>
