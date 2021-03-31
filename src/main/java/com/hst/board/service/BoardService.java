@@ -21,4 +21,8 @@ public class BoardService {
     public int selectBoardsCnt(Map<String, Object> param) throws Exception {
         return boardDao.selectBoardsCnt(param);
     }
+
+    public int addBoard(Map<String, Object> param) throws Exception {
+        return boardDao.addBoard(param);
+    }
 }

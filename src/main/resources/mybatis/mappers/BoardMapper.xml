@@ -11,6 +11,7 @@
       content AS content,
       insert_date AS insertDate
     FROM t_board
+    ORDER BY boardId DESC
     LIMIT #{offset}, #{pageCnt}
   </select>
 
@@ -19,5 +20,10 @@
       count(board_id) AS cnt
     FROM t_board
   </select>
+
+  <insert id="addBoard" parameterType="Map">
+    INSERT INTO t_board (title, content, insert_date)
+    VALUES (#{title}, #{content}, now())
+  </insert>
 
 </mapper>

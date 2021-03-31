@@ -7,6 +7,8 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
+import com.hst.board.common.Response;
+import com.hst.board.constans.Const;
 import com.hst.board.service.BoardService;
 import com.hst.board.vo.BoardVo;
 
@@ -15,7 +17,6 @@ import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 
 
@@ -25,20 +26,6 @@ import org.springframework.web.bind.annotation.ResponseBody;
 public class BoardController {
     @Autowired
     BoardService service;
-
-    @GetMapping(value="/")
-    public String Main() {
-        return "ㅎㅇ";
-    }
-
-    @PostMapping(value="path")
-    @ResponseBody
-    public Map<String, Object> postMethodName() {
-        Map<String, Object> res = new HashMap<String, Object>();
-        res.put("id", 1);
-        res.put("name", "홍승택");
-        return res;
-    }
 
     @PostMapping(value="/board/list")
     @ResponseBody
@@ -53,6 +40,21 @@ public class BoardController {
             res = new HashMap<String, Object>();
             res.put("totalCnt", 0);
             res.put("list", new ArrayList<BoardVo>());
+        }
+        return res;
+    }
+
+    @PostMapping(value="/board/add")
+    @ResponseBody
+    public Response addBoard(@RequestBody Map<String, Object> param) {
+        Response res = new Response();
+        
+        try{
+            service.addBoard(param);
+            res.setResCode(Const.RESPONSE_SUCCESS);
+        }catch(Exception e) {
+            res.setResCode(Const.RESPONSE_FAIL);
+            res.setMsg(e.getMessage());
         }
         return res;
     }
