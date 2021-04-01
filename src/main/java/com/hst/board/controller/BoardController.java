@@ -15,6 +15,7 @@ import com.hst.board.vo.BoardVo;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.ResponseBody;
@@ -51,6 +52,21 @@ public class BoardController {
         
         try{
             service.addBoard(param);
+            res.setResCode(Const.RESPONSE_SUCCESS);
+        }catch(Exception e) {
+            res.setResCode(Const.RESPONSE_FAIL);
+            res.setMsg(e.getMessage());
+        }
+        return res;
+    }
+
+    @GetMapping(value="/board/{boardId}")
+    @ResponseBody
+    public Response selectOne(@PathVariable Long boardId) {
+        Response res = new Response();
+        
+        try{
+            res.setData(service.selectOne(boardId));
             res.setResCode(Const.RESPONSE_SUCCESS);
         }catch(Exception e) {
             res.setResCode(Const.RESPONSE_FAIL);

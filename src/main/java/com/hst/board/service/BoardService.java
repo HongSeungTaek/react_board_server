@@ -25,4 +25,8 @@ public class BoardService {
     public int addBoard(Map<String, Object> param) throws Exception {
         return boardDao.addBoard(param);
     }
+
+    public BoardVo selectOne(Long boardId) throws Exception {
+        return boardDao.selectOne(boardId);
+    }
 }
