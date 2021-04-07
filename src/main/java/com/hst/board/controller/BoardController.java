@@ -74,6 +74,21 @@ public class BoardController {
         }
         return res;
     }
+
+    @PostMapping(value="/board/del")
+    @ResponseBody
+    public Response delBoard(@RequestBody Map<String, Object> param) {
+        Response res = new Response();
+        
+        try{
+            service.delBoard(param);
+            res.setResCode(Const.RESPONSE_SUCCESS);
+        }catch(Exception e) {
+            res.setResCode(Const.RESPONSE_FAIL);
+            res.setMsg(e.getMessage());
+        }
+        return res;
+    }
     
     
 }

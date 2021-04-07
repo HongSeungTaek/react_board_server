@@ -29,4 +29,8 @@ public class BoardService {
     public BoardVo selectOne(Long boardId) throws Exception {
         return boardDao.selectOne(boardId);
     }
+
+    public int delBoard(Map<String, Object> param) throws Exception {
+        return boardDao.delBoard(param);
+    }
 }

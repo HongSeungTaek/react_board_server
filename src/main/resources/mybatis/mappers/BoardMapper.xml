@@ -36,4 +36,9 @@
     WHERE board_id = #{boardId}
   </select>
 
+  <insert id="delBoard" parameterType="Map">
+    DELETE FROM t_board
+    WHERE board_id = #{boardId}
+  </insert>
+
 </mapper>
