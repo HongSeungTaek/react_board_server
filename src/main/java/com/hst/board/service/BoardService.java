@@ -33,4 +33,8 @@ public class BoardService {
     public int delBoard(Map<String, Object> param) throws Exception {
         return boardDao.delBoard(param);
     }
+
+    public int modBoard(Map<String, Object> param) throws Exception {
+        return boardDao.modBoard(param);
+    }
 }

@@ -16,4 +16,5 @@ public interface BoardDao {
     int addBoard(Map<String, Object> param) throws Exception;
     BoardVo selectOne(Long boardId) throws Exception;
     int delBoard(Map<String, Object> param) throws Exception;
+    int modBoard(Map<String, Object> param) throws Exception;
 }

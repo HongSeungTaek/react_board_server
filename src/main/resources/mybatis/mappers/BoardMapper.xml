@@ -36,9 +36,16 @@
     WHERE board_id = #{boardId}
   </select>
 
-  <insert id="delBoard" parameterType="Map">
+  <delete id="delBoard" parameterType="Map">
     DELETE FROM t_board
     WHERE board_id = #{boardId}
-  </insert>
+  </delete>
+
+  <update id="moddBoard" parameterType="Map">
+    UPDATE t_board SET
+    title = #{title},
+    content = #{content}
+    WHERE board_id = #{boardId}
+  </update>
 
 </mapper>
