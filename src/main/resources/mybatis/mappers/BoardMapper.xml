@@ -41,7 +41,7 @@
     WHERE board_id = #{boardId}
   </delete>
 
-  <update id="moddBoard" parameterType="Map">
+  <update id="modBoard" parameterType="Map">
     UPDATE t_board SET
     title = #{title},
     content = #{content}
