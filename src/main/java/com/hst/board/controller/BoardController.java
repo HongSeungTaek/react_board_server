@@ -30,12 +30,12 @@ public class BoardController {
 
     @PostMapping(value="/board/list")
     @ResponseBody
-    public Map<String, Object> selectBoards(@RequestBody Map<String, Object> param) {
+    public Map<String, Object> selectBoardList(@RequestBody Map<String, Object> param) {
         Map<String, Object> res = new HashMap<String, Object>();
         
         try{
             res.put("totalCnt", service.selectBoardsCnt(param));
-            res.put("list", service.selectBoards(param));
+            res.put("list", service.selectBoardList(param));
         }catch(Exception e) {
             System.out.println(e.toString());
             res = new HashMap<String, Object>();
@@ -66,7 +66,11 @@ public class BoardController {
         Response res = new Response();
         
         try{
-            res.setData(service.selectOne(boardId));
+            BoardVo vo = service.selectOne(boardId);
+            if(vo != null) {
+                vo.setReplyList(service.selectReplyList(boardId));
+            } 
+            res.setData(vo);
             res.setResCode(Const.RESPONSE_SUCCESS);
         }catch(Exception e) {
             res.setResCode(Const.RESPONSE_FAIL);

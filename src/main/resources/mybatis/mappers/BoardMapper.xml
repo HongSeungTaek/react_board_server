@@ -4,7 +4,7 @@
 
 <mapper namespace="com.hst.board.dao.BoardDao">
   		
-  <select id="selectBoards" resultType="com.hst.board.vo.BoardVo">
+  <select id="selectBoardList" resultType="com.hst.board.vo.BoardVo">
     SELECT
       board_id AS boardId,
       title AS title,
@@ -47,5 +47,17 @@
     content = #{content}
     WHERE board_id = #{boardId}
   </update>
+
+  <!-- 댓글 -->
+  <select id="selectReplyList" resultType="com.hst.board.vo.ReplyVo">
+    SELECT
+      reply_id AS replyId,
+      board_id AS boardId,
+      content AS content,
+      insert_date AS insertDate
+    FROM t_reply
+    WHERE board_id = #{boardId}
+    ORDER BY replyId DESC
+  </select>
 
 </mapper>

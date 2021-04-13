@@ -5,6 +5,7 @@ import java.util.Map;
 
 import com.hst.board.dao.BoardDao;
 import com.hst.board.vo.BoardVo;
+import com.hst.board.vo.ReplyVo;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -14,8 +15,8 @@ public class BoardService {
     @Autowired
     BoardDao boardDao;
 
-    public List<BoardVo> selectBoards(Map<String, Object> param) throws Exception {
-        return boardDao.selectBoards(param);
+    public List<BoardVo> selectBoardList(Map<String, Object> param) throws Exception {
+        return boardDao.selectBoardList(param);
     }
 
     public int selectBoardsCnt(Map<String, Object> param) throws Exception {
@@ -36,5 +37,9 @@ public class BoardService {
 
     public int modBoard(Map<String, Object> param) throws Exception {
         return boardDao.modBoard(param);
+    }
+
+    public List<ReplyVo> selectReplyList(Long boardId) throws Exception {
+        return boardDao.selectReplyList(boardId);
     }
 }
