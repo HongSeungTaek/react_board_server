@@ -108,6 +108,21 @@ public class BoardController {
         }
         return res;
     }
+
+    @PostMapping(value="/reply/add")
+    @ResponseBody
+    public Response addReply(@RequestBody Map<String, Object> param) {
+        Response res = new Response();
+        
+        try{
+            service.addReply(param);
+            res.setResCode(Const.RESPONSE_SUCCESS);
+        }catch(Exception e) {
+            res.setResCode(Const.RESPONSE_FAIL);
+            res.setMsg(e.getMessage());
+        }
+        return res;
+    }
     
     
 }

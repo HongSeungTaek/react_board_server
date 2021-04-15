@@ -60,4 +60,9 @@
     ORDER BY replyId DESC
   </select>
 
+  <insert id="addReply" parameterType="Map">
+    INSERT INTO t_reply (board_id, content, insert_date)
+    VALUES (#{board_id}, #{content}, now())
+  </insert>
+
 </mapper>

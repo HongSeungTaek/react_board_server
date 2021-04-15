@@ -42,4 +42,8 @@ public class BoardService {
     public List<ReplyVo> selectReplyList(Long boardId) throws Exception {
         return boardDao.selectReplyList(boardId);
     }
+
+    public int addReply(Map<String, Object> param) throws Exception {
+        return boardDao.addReply(param);
+    }
 }

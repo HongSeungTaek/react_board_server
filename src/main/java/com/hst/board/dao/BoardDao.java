@@ -20,4 +20,5 @@ public interface BoardDao {
     int modBoard(Map<String, Object> param) throws Exception;
 
     List<ReplyVo> selectReplyList(Long boardId) throws Exception;
+    int addReply(Map<String, Object> param) throws Exception;
 }
