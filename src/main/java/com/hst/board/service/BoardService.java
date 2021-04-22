@@ -46,4 +46,8 @@ public class BoardService {
     public int addReply(Map<String, Object> param) throws Exception {
         return boardDao.addReply(param);
     }
+
+    public int modReply(Map<String, Object> param) throws Exception {
+        return boardDao.modReply(param);
+    }
 }

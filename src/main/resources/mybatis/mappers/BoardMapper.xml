@@ -65,4 +65,9 @@
     VALUES (#{board_id}, #{content}, now())
   </insert>
 
+  <insert id="modReply" parameterType="Map">
+    UPDATE t_reply SET content = #{content}
+    WHERE reply_id = #{reply_id}
+  </insert>
+
 </mapper>
