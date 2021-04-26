@@ -50,4 +50,8 @@ public class BoardService {
     public int modReply(Map<String, Object> param) throws Exception {
         return boardDao.modReply(param);
     }
+
+    public int delReply(Map<String, Object> param) throws Exception {
+        return boardDao.delReply(param);
+    }
 }
