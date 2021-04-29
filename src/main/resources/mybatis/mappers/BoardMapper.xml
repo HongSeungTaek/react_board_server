@@ -72,7 +72,7 @@
 
   <delete id="delReply" parameterType="Map">
     DELETE FROM t_reply
-    WHERE reply_id = #{boardId}
+    WHERE reply_id = #{replyId}
   </delete>
 
 </mapper>
