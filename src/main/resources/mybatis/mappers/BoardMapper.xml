@@ -11,6 +11,7 @@
       content AS content,
       insert_date AS insertDate
     FROM t_board
+    WHERE title like CONCAT('%',#{keyword},'%')
     ORDER BY boardId DESC
     LIMIT #{offset}, #{pageCnt}
   </select>
@@ -19,6 +20,7 @@
     SELECT
       count(board_id) AS cnt
     FROM t_board
+    WHERE title like CONCAT('%',#{keyword},'%')
   </select>
 
   <insert id="addBoard" parameterType="Map">
