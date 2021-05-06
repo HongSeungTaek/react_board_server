@@ -85,6 +85,7 @@ public class BoardController {
         
         try{
             service.delBoard(param);
+            service.delAllReply(param);
             res.setResCode(Const.RESPONSE_SUCCESS);
         }catch(Exception e) {
             res.setResCode(Const.RESPONSE_FAIL);

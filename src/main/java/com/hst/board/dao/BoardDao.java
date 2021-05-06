@@ -23,4 +23,5 @@ public interface BoardDao {
     int addReply(Map<String, Object> param) throws Exception;
     int modReply(Map<String, Object> param) throws Exception;
     int delReply(Map<String, Object> param) throws Exception;
+    int delAllReply(Map<String, Object> param) throws Exception;
 }

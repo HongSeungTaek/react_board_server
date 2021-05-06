@@ -77,4 +77,9 @@
     WHERE reply_id = #{replyId}
   </delete>
 
+  <delete id="delAllReply" parameterType="Map">
+    DELETE FROM t_reply
+    WHERE board_id = #{boardId}
+  </delete>
+
 </mapper>
